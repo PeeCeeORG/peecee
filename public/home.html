@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeeCee</title>
+    <link rel="stylesheet" href="assets/css/gabinete.css">
+    <link rel="stylesheet" href="assets/css/menuUser.css">
+
+    <!-- imports de fontes que eu achei mt *SABORRRRRRRR* brabas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="overlay overlay-user" id="overlayUser"></div>
+
+    <header>
+        <button class="menu-toggle" id="openMenu" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="logo">
+            <h1><a href="https://youtu.be/0uz_v_mdQv0" target="_blank">Pee<span>Cee</span></a></h1>
+        </div>
+        <img src="user_img.webp" id="abrirMenu" alt="Perfil">
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <button class="close-menu" id="closeMenu" aria-label="Fechar menu">✖</button>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Peças</a></li>
+                <li><a href="https://youtu.be/OjNpRbNdR7E">Builds</a></li>
+                <li><a href="https://youtu.be/fER8zIAhRD0">Guias</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <nav>
+        <div class="menu" id="menu">
+            <button class="close-menu close-user-menu" id="closeUserMenu" aria-label="Fechar menu">✖</button>
+            <ul>
+                <li><a href="">Login</a></li>
+                <li><a href="">Entrar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+        <main>
+        
+        <section class="hero">
+            <h2>Monte o seu <span>Setup dos Sonhos</span></h2>
+            <p>Encontre as melhores peças, monte sua build e eleve sua gameplay ao nível máximo.</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Buscar placa de vídeo, processador...">
+                <button><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            </div>
+        </section>
+        <section class="categories">
+            <div class="category-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Processadores</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-vr-cardboard"></i>
+                <h3>Placas de Vídeo</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-memory"></i>
+                <h3>Memória RAM</h3>
+            </div>
+            <div class="category-card">
+                <i class="fa-solid fa-fan"></i>
+                <h3>Refrigeração</h3>
+            </div>
+        </section>
+        </main>
+
+
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/menuUser.js"></script>
+</body>
+
+</html>

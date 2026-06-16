@@ -1,0 +1,74 @@
+#abrirMenu {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    transition: right .3s ease, transform .2s ease;
+    z-index: 1001;
+}
+
+#abrirMenu.ativo {
+    right: 460px;
+    transform: translateY(-50%) scale(0.6);
+}
+
+.menu {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: .3s ease;
+    border-left: 1px solid;
+    border-color: #0171f5;
+}
+
+.menu.ativo {
+    right: 0;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu li {
+    display: block;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.close-user-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #888;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
