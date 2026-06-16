@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .user-border { fill: none; stroke: #00d4ff; stroke-width: 3; filter: url(#glow); }
+      .user-fill { fill: #0171f5; }
+    </style>
+  </defs>
+  
+  <!-- Círculo com borda cyan e glow -->
+  <circle class="user-border" cx="35" cy="35" r="32"/>
+  
+  <!-- Cabeça do usuário -->
+  <circle class="user-fill" cx="35" cy="22" r="9"/>
+  
+  <!-- Corpo/ombros do usuário -->
+  <ellipse class="user-fill" cx="35" cy="44" rx="13" ry="16"/>
+</svg>
