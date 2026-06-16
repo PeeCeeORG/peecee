@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.getElementById("menu");
 
     
+    const abrirMenuImg = document.getElementById("abrirMenu");
+
     // --- Lógica do Menu ---
     function toggleMenu() {
         // Não permite abrir se o menu direito está aberto
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (sidebar) sidebar.classList.toggle("active");
         if (overlay) overlay.classList.toggle("active");
         if (openMenuBtn) openMenuBtn.classList.toggle("active");
+        if (abrirMenuImg) abrirMenuImg.classList.toggle("darkened");
     }
 
     if (openMenuBtn) openMenuBtn.onclick = toggleMenu;

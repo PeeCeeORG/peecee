@@ -1,24 +1,91 @@
+:root {
+    /* Variações de Negro e Cinza*/
+    --bg-color: #000000; /* Preto Antonio (Preto Absoluto)*/
+    --surface-color: #0a0a0a; /* Cinza SABOR preto*/
+    --surface-hover: #141414; /* cinza SABORRRRRRRRR pretinho*/
+
+    /* Azuis*/
+    --primary-blue: #0171f5; /*Azul bom pra texto*/
+    --cyan-accent: #00d4ff; /* Azul Claro/Ciano pra detalhes(e no finalzinho, um hoverzinho) */
+    --deep-blue: #033f83;
+
+    /*Branco tipo leite*/
+    --text-light: #ffffff;
+    --text-muted: #888888;
+    --border-color: #1a1a1a;
+
+    /* GROW(BRILHO) */
+    --glow-blue: 0 0 10px rgba(1, 113, 245, 0.5);
+    --glow-deep-blue: 0 0 10px rgba(0, 74, 158, 0.5);
+    --glow-cyan: 0 0 15px rgba(0, 212, 255, 0.7);
+
+
+}
+
+/* 1. O BOTÃO: Controla tamanho, posição, animação e sobreposição (z-index) */
 #abrirMenu {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    object-fit: cover;
+    border: none;
+    background: transparent;
+    padding: 0; /* Importante para botões: remove o espaçamento interno padrão */
+    box-shadow: none;
 
     position: absolute;
-    top: 50%;
+    top: 6px;
     right: 50px;
-    transform: translateY(-50%);
+    transform: translateY(0);
 
     cursor: pointer;
-    transition: right .3s ease, transform .2s ease;
-    z-index: 1001;
+    transition: right .3s ease, transform .3s ease, filter .3s ease;
+    z-index: 998;
+}
+
+/* 2. A IMAGEM: Preenche 100% do botão e se ajusta sem distorcer (object-fit) */
+#abrirMenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Remove aquele pequeno espaço fantasma que imagens costumam ter embaixo */
+}
+
+/* Modificadores de estado do botão (JavaScript) */
+#abrirMenu.darkened {
+    filter: brightness(0.35);
 }
 
 #abrirMenu.ativo {
-    right: 460px;
-    transform: translateY(-50%) scale(0.6);
+    right: 360px;
+    top: 6px;
+    transform: translateY(0) scale(0.70);
+    z-index: 1003;
 }
 
+/* Overlays e Media Queries mantidos iguaizinhos, só limpamos os espaços */
+.overlay-user {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 1001;
+}
+
+.overlay-user.active {
+    display: block !important;
+}
+
+@media (max-width: 480px) {
+    #abrirMenu.ativo {
+        right: auto;
+        left: 12px;
+    }
+}
+
+/* Menu Lateral do Usuário */
 .menu {
     background-color: rgb(0, 0, 0);
     height: 100vh;
@@ -27,39 +94,66 @@
     position: fixed;
     top: 0;
     right: -450px;
+    z-index: 1002;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
+    /* --- Alterado para alinhar no topo --- */
+    justify-content: flex-start; 
+    padding-top: 80px; /* Espaço no topo para o menu respirar (ajuste o valor se precisar) */
+    
     align-items: center;
     text-align: center;
     transition: .3s ease;
-    border-left: 1px solid;
-    border-color: #0171f5;
+    
+    border-left: 2px solid #0171f5;
+    box-shadow: -5px 0 15px rgba(1, 113, 245, 0.3); 
 }
 
 .menu.ativo {
     right: 0;
+    box-shadow: -5px 0 25px rgba(1, 113, 245, 0.6);
 }
 
 .menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    width: 80%;
 }
 
 .menu li {
     display: block;
+    width: 100%;
 }
 
 .menu a {
+    text-align: center;
     text-decoration: none;
-    color: white;
     font-size: 1.5rem;
+    display: block;
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease; /* Transição suave para cores e sombras */
+
+    /* --- Novas cores e efeito Glow --- */
+    color: #ffffff;                             /* Cor do texto (branco para contrastar com o fundo preto) */
+    background-color: #000000;                  /* Fundo preto */
+    border: 2px solid rgba(1, 113, 245, 1);    /* Borda azul sólida */
+    box-shadow: 0 0 10px rgba(1, 113, 245, 0.5); /* O seu efeito glow-blue */
 }
+
+/* Efeito opcional: Intensifica o brilho azul quando o usuário passa o mouse */
+.menu a:hover {
+    background-color: #0a0a0a;                  /* Um preto levemente mais claro ao passar o mouse */
+    box-shadow: 0 0 20px rgba(1, 113, 245, 0.8); /* Glow mais intenso no hover */
+    border-color: #0171f5;                      /* Garante a borda na cor máxima */
+}
+
 
 .close-user-menu {
     position: absolute;
@@ -71,4 +165,8 @@
     font-size: 1.6rem;
     cursor: pointer;
     transition: color 0.3s ease;
+}
+
+.close-user-menu:hover {
+    color: var(--cyan-accent); /* Adicionei um hoverzinho de brinde pra dar um feedback visual legal! */
 }

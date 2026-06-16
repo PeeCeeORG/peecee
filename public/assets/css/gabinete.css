@@ -169,15 +169,20 @@ nav a:hover{
     left: -300px;
     width: 250px;
     height: 100vh;
-    background-color: var(--surface-color);
-    border-right: 1px solid var(--primary-blue);
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.9);
-    transition: left 0.3s ease;
     z-index: 1000;
     padding: 20px;
+    transition: left 0.3s ease;
+    
+    /* --- Novas Cores e Efeitos (Preto + Borda Azul + Glow) --- */
+    background-color: #000000;                  /* Fundo totalmente preto */
+    border-right: 2px solid #0171f5;            /* Borda azul sólida de 2px à direita */
+    box-shadow: 5px 0 15px rgba(1, 113, 245, 0.3); /* Glow azul projetado para a direita */
 }
+
 .sidebar.active {
     left: 0 !important;
+    /* --- Glow mais intenso quando a sidebar estiver ativa --- */
+    box-shadow: 5px 0 25px rgba(1, 113, 245, 0.6);
 }
 
 .close-menu {
@@ -197,23 +202,51 @@ nav a:hover{
     color: var(--cyan-accent);
 }
 
-.sidebar ul{
+/* Adicionei as variáveis de cor para o tema preto e azul */
+:root {
+    --bg-button-dark: #0d0e12; /* Um preto fosco elegante */
+    --blue-accent: #0171f5;    /* O azul correspondente ao seu glow */
+    --glow-blue: 0 0 15px rgba(1, 113, 245, 0.6); /* Seu efeito de brilho ajustado */
+}
+
+.sidebar ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px; /* Ajustado para um espaçamento mais harmônico entre botões */
+    padding: 0;
+    margin: 0;
 }
 
-.sidebar a{
-    color: var(--text-light);
+.sidebar a {
+    display: block;               /* Faz o link se comportar como um bloco (botão inteiro clicável) */
+    text-align: center;           /* Alinha o texto no centro do botão */
+    color: var(--text-light, #fff); 
     text-decoration: none;
-    font-size: 1.2 rem;
+    font-size: 1.2rem;            /* Corrigido o espaço entre '1.2' e 'rem' */
     font-weight: bold;
-    transition: color 0.3s;
+    
+    /* Estilização do Botão */
+    background-color: var(--bg-button-dark);
+    border: 2px solid var(--blue-accent); /* Borda azul fina e elegante */
+    padding: 12px 24px;           /* Espaçamento interno para dar volume de botão */
+    border-radius: 8px;           /* Cantos suavemente arredondados */
+    
+    /* Transições suaves para animação */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-.sidebar a:hover{
-    color: var(--cyan-accent);
+/* Efeito ao passar o mouse (Hover) */
+.sidebar a:hover {
+    color: #ffffff;
+    background-color: var(--blue-accent); /* O botão preenche com azul */
+    box-shadow: var(--glow-blue);         /* Aplica o efeito de brilho neon */
+    transform: translateY(-2px);          /* Faz o botão "flutuar" levemente */
+}
+
+/* Efeito ao clicar (Active) */
+.sidebar a:active {
+    transform: translateY(0);             /* Dá a sensação de botão pressionado */
 }
 
 .overlay {
@@ -316,6 +349,7 @@ main {
     color: var(--bg-color);
 }
 
+    
 /*GATOgorias*/
 .categories {
     display: flex;
@@ -326,8 +360,9 @@ main {
 }
 
 .category-card {
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
+    background: rgba(10, 10, 10, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(1, 113, 245, 0.2);  
     border-bottom: 3px solid var(--primary-blue);
     padding: 30px;
     border-radius: 12px;

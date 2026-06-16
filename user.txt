@@ -1,0 +1,36 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definições -->
+    <defs>
+        <!-- Gradiente do Círculo de Fundo -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        
+        <!-- Gradiente do Avatar -->
+        <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#0171f5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#033f83;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Máscara para garantir que nada saia do círculo -->
+        <clipPath id="circleClip">
+            <circle cx="200" cy="200" r="190" />
+        </clipPath>
+    </defs>
+
+    <!-- Círculo Base (Fundo do Avatar ) -->
+    <circle cx="200" cy="200" r="190" fill="url(#bgGradient)" />
+
+    <!-- Grupo do Avatar com Clip -->
+    <g clip-path="url(#circleClip)">
+        <!-- Cabeça -->
+        <circle cx="200" cy="155" r="65" fill="url(#avatarGradient)" />
+        
+        <!-- Corpo/Ombros -->
+        <path d="M80,350 C80,260 130,230 200,230 C270,230 320,260 320,350 L320,400 L80,400 Z" fill="url(#avatarGradient)" />
+    </g>
+    
+    <!-- Borda Externa com Brilho Ciano -->
+    <circle cx="200" cy="200" r="190" fill="none" stroke="#00d4ff" stroke-width="4" style="filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.7));" />
+</svg>
